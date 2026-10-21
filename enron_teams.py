@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 """
-Assign Enron (CMU maildir release) custodians to six teams and count emails per team.
+Assigns Enron (CMU maildir release) custodians to six teams and counts emails per team.
 
 Usage:
-    python enron_teams.py /path/to/maildir
-    python enron_teams.py /path/to/maildir --no-dedup --out results/
+    python enron_teams.py /path/to/enron_mail_20150507.tar.gz   # no unzipping needed
+    python enron_teams.py /path/to/maildir                      # or an extracted maildir
+    python enron_teams.py <input> --no-dedup --out results/
+
+The archive is read as a stream, one email at a time, so it never needs to be
+extracted to disk.
 
 Outputs (in --out, default ./enron_team_output):
     custodian_counts.csv   one row per mailbox: custodian, team, source, raw/unique email counts
@@ -24,6 +28,7 @@ import argparse
 import csv
 import os
 import re
+import tarfile
 from collections import Counter, defaultdict
 
 TEAMS = [
@@ -101,7 +106,7 @@ TEAM_MAP = {
     "zipper-a": "Executive & Corporate",
 }
 
-# Best guesses worth verifying before treating as labels.
+# Best guesses to be verified before confirming as labels.
 LOW_CONFIDENCE = {
     "arora-h", "carson-m", "griffith-j", "lucci-p", "ward-k", "hodge-j",
     "panus-s", "bailey-s", "hain-m", "scott-s", "donoho-l", "hyatt-k",
@@ -128,19 +133,42 @@ TEAM_KEYWORDS = {
 
 MSGID_RE = re.compile(rb"^Message-ID:\s*(.+)$", re.IGNORECASE | re.MULTILINE)
 HEADER_SPLIT = re.compile(rb"\r?\n\r?\n")
+MAX_BYTES = 200_000
 
 
-def iter_email_files(root):
-    for dirpath, _, filenames in os.walk(root):
-        for name in filenames:
-            if name.startswith("."):
+def iter_emails(source):
+    """Yield (custodian, raw_bytes) for every email in a maildir folder or a .tar/.tar.gz archive."""
+    if os.path.isdir(source):
+        for c in sorted(os.listdir(source)):
+            cdir = os.path.join(source, c)
+            if c.startswith(".") or not os.path.isdir(cdir):
                 continue
-            yield os.path.join(dirpath, name)
+            for dirpath, _, filenames in os.walk(cdir):
+                for name in filenames:
+                    if name.startswith("."):
+                        continue
+                    try:
+                        with open(os.path.join(dirpath, name), "rb") as f:
+                            yield c, f.read(MAX_BYTES)
+                    except OSError:
+                        continue
+    else:
+        # "r|*" streams the archive sequentially without extracting anything
+        with tarfile.open(source, mode="r|*") as tar:
+            for member in tar:
+                if not member.isfile():
+                    continue
+                parts = member.name.split("/")
+                idx = parts.index("maildir") + 1 if "maildir" in parts else 0
+                if len(parts) <= idx + 1 or parts[idx].startswith("."):
+                    continue
+                f = tar.extractfile(member)
+                if f is None:
+                    continue
+                yield parts[idx], f.read(MAX_BYTES)
 
 
-def read_email(path, max_bytes=200_000):
-    with open(path, "rb") as f:
-        data = f.read(max_bytes)
+def parse_email(data):
     parts = HEADER_SPLIT.split(data, maxsplit=1)
     header = parts[0]
     body = parts[1] if len(parts) > 1 else b""
@@ -157,58 +185,55 @@ def keyword_scores(text):
     return scores
 
 
-def process_custodian(path, dedup, sample_for_keywords):
-    raw = 0
-    seen = set()
-    unique = 0
-    kw_text = []
-    for fpath in iter_email_files(path):
-        raw += 1
-        try:
-            msgid, header, body = read_email(fpath)
-        except OSError:
-            continue
-        key = msgid or fpath.encode()
-        if dedup and key in seen:
-            continue
-        seen.add(key)
-        unique += 1
-        if sample_for_keywords and len(kw_text) < 500:
-            subj = re.search(rb"^Subject:(.*)$", header, re.IGNORECASE | re.MULTILINE)
-            kw_text.append((subj.group(1) if subj else b"") + b" " + body[:2000])
-    text = b" ".join(kw_text).decode("utf-8", errors="ignore") if kw_text else ""
-    return raw, unique, text
-
-
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("maildir", help="Path to the CMU maildir folder (contains allen-p, arnold-j, ...)")
+    ap.add_argument("source", help="Path to enron_mail_*.tar.gz (no extraction needed) or an extracted maildir folder")
     ap.add_argument("--out", default="enron_team_output", help="Output directory")
     ap.add_argument("--no-dedup", action="store_true", help="Count raw files instead of unique Message-IDs")
     args = ap.parse_args()
 
-    custodians = sorted(
-        d for d in os.listdir(args.maildir)
-        if os.path.isdir(os.path.join(args.maildir, d)) and not d.startswith(".")
-    )
+    if not os.path.exists(args.source):
+        raise SystemExit(f"Not found: {args.source}")
+
+    raw = Counter()
+    unique = Counter()
+    seen = defaultdict(set)
+    kw_text = defaultdict(list)
+    n = 0
+    for c, data in iter_emails(args.source):
+        n += 1
+        if n % 25000 == 0:
+            print(f"  processed {n:,} files ({len(raw)} mailboxes so far)", flush=True)
+        raw[c] += 1
+        msgid, header, body = parse_email(data)
+        if not args.no_dedup:
+            key = msgid or f"{c}:{n}".encode()
+            if key in seen[c]:
+                continue
+            seen[c].add(key)
+        unique[c] += 1
+        if c not in TEAM_MAP and len(kw_text[c]) < 500:
+            subj = re.search(rb"^Subject:(.*)$", header, re.IGNORECASE | re.MULTILINE)
+            kw_text[c].append((subj.group(1) if subj else b"") + b" " + body[:2000])
+    seen.clear()
+
+    custodians = sorted(raw)
     if not custodians:
-        raise SystemExit(f"No custodian folders found in {args.maildir}")
+        raise SystemExit(f"No mailboxes found in {args.source}")
+    print(f"Done reading: {n:,} files across {len(custodians)} mailboxes")
 
     os.makedirs(args.out, exist_ok=True)
     rows, unassigned = [], []
     team_custodians = defaultdict(list)
     team_raw, team_unique = Counter(), Counter()
 
-    for i, c in enumerate(custodians, 1):
+    for c in custodians:
         mapped = c in TEAM_MAP
-        print(f"[{i}/{len(custodians)}] {c}", flush=True)
-        raw, unique, text = process_custodian(
-            os.path.join(args.maildir, c), dedup=not args.no_dedup, sample_for_keywords=not mapped
-        )
         if mapped:
             team = TEAM_MAP[c]
             source = "manual-low-confidence" if c in LOW_CONFIDENCE else "manual"
         else:
+            text = b" ".join(kw_text[c]).decode("utf-8", errors="ignore")
             scores = keyword_scores(text)
             best = max(scores, key=scores.get) if any(scores.values()) else "Unknown"
             team = f"UNASSIGNED (suggest: {best})"
@@ -216,11 +241,11 @@ def main():
             unassigned.append({"custodian": c, "suggested_team": best,
                                **{f"score_{t}": scores[t] for t in TEAMS}})
         rows.append({"custodian": c, "team": team, "source": source,
-                     "raw_files": raw, "unique_emails": unique})
+                     "raw_files": raw[c], "unique_emails": unique[c]})
         bucket = team if mapped else "Unassigned"
         team_custodians[bucket].append(c)
-        team_raw[bucket] += raw
-        team_unique[bucket] += unique
+        team_raw[bucket] += raw[c]
+        team_unique[bucket] += unique[c]
 
     with open(os.path.join(args.out, "custodian_counts.csv"), "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["custodian", "team", "source", "raw_files", "unique_emails"])
