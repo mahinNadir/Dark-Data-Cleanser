@@ -1,0 +1,151 @@
+custodian,team,source,raw_files,unique_emails
+allen-p,Trading,manual,3034,3034
+arnold-j,Trading,manual,4898,4898
+arora-h,Trading,manual-low-confidence,654,654
+badeer-r,Trading,manual,877,877
+bailey-s,Legal,manual-low-confidence,478,478
+bass-e,Trading,manual,7823,7823
+baughman-d,Trading,manual,2760,2760
+beck-s,"Operations, Risk & Research",manual,11830,11830
+benson-r,Trading,manual,767,767
+blair-l,Pipelines (ETS),manual,3415,3415
+brawner-s,Trading,manual,1026,1026
+buy-r,Executive & Corporate,manual-low-confidence,2429,2429
+campbell-l,UNASSIGNED (suggest: Pipelines (ETS)),keyword-suggestion,6490,6490
+carson-m,Trading,manual-low-confidence,1400,1400
+cash-m,Legal,manual,2969,2969
+causholli-m,UNASSIGNED (suggest: Trading),keyword-suggestion,943,943
+corman-s,Pipelines (ETS),manual,2025,2025
+crandell-s,Trading,manual,519,519
+cuilla-m,Trading,manual,1029,1029
+dasovich-j,Gov & Regulatory Affairs,manual,28234,28234
+davis-d,UNASSIGNED (suggest: Gov & Regulatory Affairs),keyword-suggestion,2249,2249
+dean-c,"Operations, Risk & Research",manual,2429,2429
+delainey-d,Executive & Corporate,manual,3566,3566
+derrick-j,Legal,manual,1766,1766
+dickson-s,Legal,manual,395,395
+donoho-l,Pipelines (ETS),manual-low-confidence,1045,1045
+donohoe-t,UNASSIGNED (suggest: Trading),keyword-suggestion,1015,1015
+dorland-c,Trading,manual,2127,2127
+ermis-f,Trading,manual,1230,1230
+farmer-d,"Operations, Risk & Research",manual,13032,13032
+fischer-m,UNASSIGNED (suggest: Trading),keyword-suggestion,1498,1498
+forney-j,Trading,manual,729,729
+fossum-d,Pipelines (ETS),manual,4796,4796
+gang-l,"Operations, Risk & Research",manual,590,590
+gay-r,UNASSIGNED (suggest: Trading),keyword-suggestion,1415,1415
+geaccone-t,Pipelines (ETS),manual,1592,1592
+germany-c,"Operations, Risk & Research",manual,12436,12436
+gilbertsmith-d,Trading,manual,578,578
+giron-d,"Operations, Risk & Research",manual,4220,4220
+griffith-j,Trading,manual-low-confidence,2973,2973
+grigsby-m,Trading,manual,2237,2237
+guzman-m,"Operations, Risk & Research",manual,6054,6054
+haedicke-m,Legal,manual,5246,5246
+hain-m,Gov & Regulatory Affairs,manual-low-confidence,3820,3820
+harris-s,Pipelines (ETS),manual,548,548
+hayslett-r,Pipelines (ETS),manual,2554,2554
+heard-m,Legal,manual,1623,1623
+hendrickson-s,UNASSIGNED (suggest: Trading),keyword-suggestion,719,719
+hernandez-j,"Operations, Risk & Research",manual-low-confidence,3265,3265
+hodge-j,Legal,manual-low-confidence,1661,1661
+holst-k,Trading,manual,463,463
+horton-s,Pipelines (ETS),manual,2470,2470
+hyatt-k,Pipelines (ETS),manual-low-confidence,1794,1794
+hyvl-d,Legal,manual,3210,3210
+jones-t,Legal,manual,19950,19950
+kaminski-v,"Operations, Risk & Research",manual,28465,28465
+kean-s,Gov & Regulatory Affairs,manual,25351,25351
+keavey-p,Trading,manual,2177,2177
+keiser-k,"Operations, Risk & Research",manual,1113,1113
+king-j,UNASSIGNED (suggest: Trading),keyword-suggestion,462,462
+kitchen-l,Executive & Corporate,manual,5546,5546
+kuykendall-t,Trading,manual,1120,1120
+lavorato-j,Executive & Corporate,manual,4685,4685
+lay-k,Executive & Corporate,manual,5937,5937
+lenhart-m,Trading,manual,5920,5920
+lewis-a,UNASSIGNED (suggest: Trading),keyword-suggestion,2191,2191
+linder-e,"Operations, Risk & Research",manual,2805,2805
+lokay-m,Pipelines (ETS),manual,5568,5568
+lokey-t,Pipelines (ETS),manual,1156,1156
+love-p,"Operations, Risk & Research",manual-low-confidence,5002,5002
+lucci-p,Trading,manual-low-confidence,997,997
+maggi-m,Trading,manual,1991,1991
+mann-k,Legal,manual,23381,23381
+martin-t,Trading,manual,1112,1112
+may-l,Trading,manual,1600,1600
+mccarty-d,Pipelines (ETS),manual-low-confidence,691,691
+mcconnell-m,Pipelines (ETS),manual,4542,4542
+mckay-b,UNASSIGNED (suggest: Trading),keyword-suggestion,681,681
+mckay-j,UNASSIGNED (suggest: Trading),keyword-suggestion,998,998
+mclaughlin-e,"Operations, Risk & Research",manual,3353,3353
+merriss-s,"Operations, Risk & Research",manual,1627,1627
+meyers-a,"Operations, Risk & Research",manual,1099,1099
+mims-thurston-p,Trading,manual,2038,2038
+motley-m,Trading,manual,378,378
+neal-s,Trading,manual,3268,3268
+nemec-g,Legal,manual,10655,10655
+panus-s,Legal,manual-low-confidence,437,437
+parks-j,Trading,manual,2284,2284
+pereira-s,UNASSIGNED (suggest: Trading),keyword-suggestion,725,725
+perlingiere-d,Legal,manual,4778,4778
+phanis-s,UNASSIGNED (suggest: Legal),keyword-suggestion,35,35
+pimenov-v,UNASSIGNED (suggest: Pipelines (ETS)),keyword-suggestion,642,642
+platter-p,Trading,manual,574,574
+presto-k,Trading,manual,2204,2204
+quenet-j,UNASSIGNED (suggest: Trading),keyword-suggestion,395,395
+quigley-d,Trading,manual,1568,1568
+rapp-b,UNASSIGNED (suggest: Pipelines (ETS)),keyword-suggestion,563,563
+reitmeyer-j,Trading,manual,498,498
+richey-c,UNASSIGNED (suggest: Trading),keyword-suggestion,582,582
+ring-a,Trading,manual,706,706
+ring-r,UNASSIGNED (suggest: Trading),keyword-suggestion,994,994
+rodrique-r,"Operations, Risk & Research",manual-low-confidence,2766,2766
+rogers-b,UNASSIGNED (suggest: Trading),keyword-suggestion,8009,8009
+ruscitti-k,Trading,manual,1643,1643
+sager-e,Legal,manual,5200,5200
+saibi-e,Trading,manual,1116,1116
+salisbury-h,"Operations, Risk & Research",manual,1632,1632
+sanchez-m,UNASSIGNED (suggest: Trading),keyword-suggestion,256,256
+sanders-r,Legal,manual,7329,7329
+scholtes-d,Trading,manual,647,647
+schoolcraft-d,Pipelines (ETS),manual,1859,1859
+schwieger-j,Trading,manual,738,738
+scott-s,Pipelines (ETS),manual-low-confidence,8022,8022
+semperger-c,"Operations, Risk & Research",manual,721,721
+shackleton-s,Legal,manual,18687,18687
+shankman-j,Executive & Corporate,manual-low-confidence,3856,3856
+shapiro-r,Gov & Regulatory Affairs,manual,6071,6071
+shively-h,Trading,manual,1991,1991
+skilling-j,Executive & Corporate,manual,4139,4139
+slinger-r,"UNASSIGNED (suggest: Operations, Risk & Research)",keyword-suggestion,132,132
+smith-m,UNASSIGNED (suggest: Pipelines (ETS)),keyword-suggestion,1642,1642
+solberg-g,"Operations, Risk & Research",manual,1081,1081
+south-s,Trading,manual,248,248
+staab-t,Trading,manual,621,621
+stclair-c,Legal,manual,3030,3030
+steffes-j,Gov & Regulatory Affairs,manual,3331,3331
+stepenovitch-j,Trading,manual,1227,1227
+stokley-c,"Operations, Risk & Research",manual-low-confidence,1252,1252
+storey-g,Trading,manual,1027,1027
+sturm-f,Trading,manual,1169,1169
+swerzbin-m,Trading,manual,355,355
+symes-k,"Operations, Risk & Research",manual,10827,10827
+taylor-m,Legal,manual,13875,13875
+tholt-j,Trading,manual,1885,1885
+thomas-p,Trading,manual,1293,1293
+townsend-j,Trading,manual,646,646
+tycholiz-b,Trading,manual,1219,1219
+ward-k,Trading,manual-low-confidence,2611,2611
+watson-k,Pipelines (ETS),manual,2950,2950
+weldon-c,UNASSIGNED (suggest: Trading),keyword-suggestion,1566,1566
+whalley-g,Executive & Corporate,manual,1878,1878
+whalley-l,UNASSIGNED (suggest: Trading),keyword-suggestion,3335,3335
+white-s,"Operations, Risk & Research",manual,3272,3272
+whitt-m,UNASSIGNED (suggest: Trading),keyword-suggestion,807,807
+williams-j,UNASSIGNED (suggest: Legal),keyword-suggestion,1213,1213
+williams-w3,Trading,manual,3440,3440
+wolfe-j,Trading,manual,1587,1587
+ybarbo-p,UNASSIGNED (suggest: Pipelines (ETS)),keyword-suggestion,1291,1291
+zipper-a,Executive & Corporate,manual-low-confidence,1563,1563
+zufferli-j,Trading,manual,557,557
