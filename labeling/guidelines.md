@@ -9,7 +9,7 @@ We will use these labels:
 - Trading
 - Legal
 - Gov & Regulatory Affairs
-- Piplines (ETS)
+- Pipelines (ETS)
 - Operations, Risk & Research
 - Executive & Corporate
 - Unsure
@@ -33,7 +33,7 @@ The mailbox owner's team can help, but it should not always decide the final lab
 
 Use this label for emails about gas or power trading, prices, deals, positions, or market information
 Example:
-1. An email discusses changes in natural gas price
+1. An email discusses changes in natural gas prices
    **Label**: Trading
 2. An email discusses a power deal and the amount of power to buy or sell
    **Label**: Trading
@@ -44,7 +44,7 @@ Example:
 
 Use this label for emails about contracts, agreements, legal reviews, or other legal issues.
 Examples: 
-1. An email asks someone to revies a contract.
+1. An email asks someone to reviews a contract.
    **Label**: Legal
 2. An email discusses changes to an agreement.
    **Label**: Legal
@@ -59,7 +59,7 @@ Example:
    **Label**: Gov & Regulatory Affairs
 2. An email discusses a FERC meeting or decision.
    **Label**: Gov & Regulatory Affairs
-3. An email discusses a new energy law or gobernment policy.
+3. An email discusses a new energy law or government policy.
    **Label**: Gov & Regulatory Affairs
 
 ### Pipelines (ETS)
@@ -67,9 +67,9 @@ Example:
 Use this label for emails about pipelines, transportation, capacity, tariffs, or pipeline operations. 
 Examples: 
 1. An email discusses available pipeline capacity.
-   **Label: Pipelines (ETS)
+   **Label**: Pipelines (ETS)
 2. An email reports a pipeline outage or maintenance issue.
-   **Label**: Pipeline (ETS)
+   **Label**: Pipelines (ETS)
 3. An email discusses gas transportation or pipeline tariffs.
    **Label**: Pipelines (ETS)
 
@@ -78,18 +78,18 @@ Examples:
 Use this label for emails about scheduling, settlements, deal corrections, risk, research, or models.
 Examples:
 1. An email reports a settlement problem.
-   **Label**: Operation, Risk & Research
+   **Label**: Operations, Risk & Research
 2. An email asks someone to correct a deal in the system.
-   **Label**: Operation, Risk & Research
-3. An emial discusses a risk report or financial model.
-   **Label**: Operation, Risk & Research
+   **Label**: Operations, Risk & Research
+3. An email discusses a risk report or financial model.
+   **Label**: Operations, Risk & Research
 
 ### Executive & Corporate
 
 Use this label for emails about company strategy, management, board issues, company announcements, or major company decisions. 
 Examples: 
 1. An email discusses company strategy or future plans.
-   **Label**: Executive & Corportat
+   **Label**: Executive & Corporate
 2. An email discusses a board or management meeting.
    **Label**: Executive & Corporate
 3. An email contains an important company-wide announcement.
@@ -103,7 +103,7 @@ Examples:
 2. Read the email subject and body.
 3. Decide which team is mainly responsible for the email.
 4. If the content clearly belongs to another team, use the team based on the content.
-5. If it is hard to decide, use Unsure
+5. If it is hard to decide, use Unsure.
 6. If the email is not related to a specific team, use Generic/Other
 
 ## Example
@@ -119,21 +119,21 @@ The email belongs to Legal because the main topic is contract review.
 The email is mainly about a trading activity, even though the mailbox owner is in Legal.
 
 **Mailbox owner:** Executive & Corporate
-**Email topic:** Legal agreement that needs revies
-**Label:** LegalThe main purpose of the document is legal review, even though it came from an executive mailbox.
+**Email topic:** Legal agreement that needs reviews
+**Label:** Legal The main purpose of the document is legal review, even though it came from an executive mailbox.
 
-### Edge Cases
+## Edge Cases
 
-## Mixed Content
+### Mixed Content
 
 If an email includes topics from more than one team, choose the team that is mainly responsible for the email.
 If there is no clear main team, use Unsure and add a short note.
 
-## Generic Email
+### Generic Email
 
 Use Generic/Other when the email has no team-specific work.
 
-## Not Enough Information
+### Not Enough Information
 
 If the email does not have enough information to choose a team, use Unsure. Do not guess the label.
 
