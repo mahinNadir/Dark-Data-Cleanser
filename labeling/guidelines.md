@@ -60,4 +60,17 @@ Examples: Company strategy, Board meeting, Company-wide announcement
 
 ## How to choose the Label
 
-1. Check the mailbox owner's team. 
+1. Check the mailbox owner's team.
+2. Read the email subject and body.
+3. Decide which team is mainly responsible for the email.
+4. If the content clearly belongs to another team, use the team based on the content.
+5. if it is hard to decide, use Unsure
+6. If the email is not related to a specific team, use Generic/Other
+
+## Example
+
+**Mailbox owner:** Trading
+**Email topic:** Contract review
+**Label:** Legal
+The email belongs to Legal because the main topic is contract review.
+
