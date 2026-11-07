@@ -42,7 +42,7 @@ Example:
 
 Use this label for emails about contracts, agreements, legal reviews, or other legal issues.
 Examples: 
-1. An email asks someone to reviews a contract.
+1. An email asks someone to review a contract.
    **Label:** Legal
 2. An email discusses changes to an agreement.
    **Label:** Legal
@@ -97,12 +97,18 @@ Examples:
 
 ## How to choose the Label
 
-1. Check the mailbox owner's team.
-2. Read the email subject and body.
-3. Decide which team is mainly responsible for the email.
-4. If the content clearly belongs to another team, use the team based on the content.
-5. If it is hard to decide, use Unsure.
-6. If the email is not related to a specific team, use Generic/Other
+1. Read the subject and body first. The content decides the label.
+2. Mailbox owner and folder are context only. Use them to break a tie, never to decide.
+3. Pick the team that would own or act on this email.
+4. If teams overlap, use these tie-breakers:
+   - prices, positions, deal terms -> Trading
+   - pipeline capacity, outages, tariffs, transport -> Pipelines (ETS)
+   - scheduling, settlements, deal entry or correction, risk or model reports -> Operations, Risk & Research
+   - FERC, CPUC, ISO market rules, legislation, lobbying -> Gov & Regulatory Affairs
+   - contract or agreement review -> Legal
+   - strategy, board, leadership announcements -> Executive & Corporate
+5. If it is hard to decide, or the topics are mixed with no clear main team, use Unsure and add a short note.
+6. If the email has no team-specific work, use Generic/Other.
 
 ## Example
 
@@ -117,8 +123,9 @@ The email belongs to Legal because the main topic is contract review.
 The email is mainly about a trading activity, even though the mailbox owner is in Legal.
 
 **Mailbox owner:** Executive & Corporate
-**Email topic:** Legal agreement that needs reviews
-**Label:** Legal The main purpose of the document is legal review, even though it came from an executive mailbox.
+**Email topic:** Legal agreement that needs review
+**Label:** Legal
+The main purpose of the document is legal review, even though it came from an executive mailbox.
 
 ## Edge Cases
 
@@ -130,6 +137,7 @@ If there is no clear main team, use Unsure and add a short note.
 ### Generic Email
 
 Use Generic/Other when the email has no team-specific work.
+Examples: automatic IT notices (such as a mailbox size warning), newsletters and ads, personal messages, farewells, birth or event announcements, lunch invitations.
 
 ### Not Enough Information
 
